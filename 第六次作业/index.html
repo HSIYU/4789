@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#first {
+				height: 80px;
+			}
+
+			.zd {
+				cursor: pointer;
+			}
+
+			.a {
+				background-color: lightgreen;
+				font-size: 12px;
+				width: 50px;
+				margin-top: -10px;
+				display: none;
+			}
+
+			#second {
+				position: relative;
+			}
+
+
+			#second p,
+			span {
+				cursor: pointer;
+			}
+
+			.b1 {
+				width: 200px;
+				height: 200px;
+				margin: auto;
+				position: absolute;
+				top: 200%;
+				left: 0;
+				right: 0;
+				background-color: chartreuse;
+				display: none;
+			}
+
+			#fourth {
+				width: 500px;
+				height: 600px;
+				border: 1px solid;
+				padding: 0;
+				position: relative;
+			}
+
+			#fourth ul {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+			}
+
+			#fourth li {
+				float: left;
+				margin-right: 20px;
+			}
+
+			#fourth li img {
+				width: 100px;
+				height: 100px;
+			}
+
+			#fourth li:hover {
+				cursor: pointer;
+			}
+
+			#fifth img {
+				margin-left: -31px;
+				margin-bottom: -10px;
+				cursor: pointer;
+			}
+
+			.g {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="first">
+			<h2>提示信息</h2>
+			<button class="zd">记住密码,自动登入</button>
+			<div class="a">
+				<p>不要记住！！</p>
+			</div>
+		</div>
+		<h2>登录框</h2>
+		<div id="second">
+			<p>登陆</p>
+			<div class="b1">
+				<span>X</span>
+			</div>
+		</div>
+		<h2>搜索框</h2>
+		<div id="third">
+			<input type="text" class="c" value="搜索" />
+		</div>
+		<h2>图片切换</h2>
+		<div id="fourth">
+			<img src="img/1.webp" width="100%" height="80%" class="d">
+			<ul>
+				<li class="d1"><img src="img/1.webp"></li>
+				<li class="d2"><img src="img/2.webp"></li>
+				<li class="d3"><img src="img/3.webp"></li>
+				<li class="d4"><img src="img/4.webp"></li>
+			</ul>
+		</div>
+		<h2>密码框</h2>
+		<div id="fifth">
+			<input type="password" class="e" />
+			<img src="img/eyenone.png" class="f">
+			<img src="img/eyesee.png" class="g">
+		</div>
+		<script>
+			//提示信息
+			const a1 = document.querySelector('.zd');
+			const a = document.querySelector('.a');
+			a1.onmousemove = function() {
+				a.style.display = 'block';
+			}
+			a1.onmouseout = function() {
+				a.style.display = 'none';
+			}
+			//登录框
+			const b = document.querySelector('#second p');
+			const b2 = document.querySelector('#second .b1');
+			const b3 = document.querySelector('#second .b1 span')
+			b.onclick = function() {
+				b2.style.display = 'block';
+			}
+			b3.onclick = function() {
+				b2.style.display = 'none';
+			}
+			//搜索框
+			let c = document.querySelector('#third .c');
+			c.onfocus = function() {
+				if (c.value === '搜索') {
+					c.value = '';
+				}
+			}
+			c.onblur = function() {
+				if (c.value === '') {
+					c.value = '搜索';
+				}
+			}
+			//图片切换
+			const d = document.querySelector('.d');
+			const d1 = document.querySelector('.d1');
+			const d2 = document.querySelector('.d2');
+			const d3 = document.querySelector('.d3');
+			const d4 = document.querySelector('.d4');
+			d.onmouseover = function() {
+				d.src = 'img/2.webp';
+			}
+			d1.onmouseover = function() {
+				d.src = 'img/1.webp';
+			}
+			d2.onmouseover = function() {
+				d.src = 'img/2.webp';
+			}
+			d3.onmouseover = function() {
+				d.src = 'img/3.webp';
+			}
+			d4.onmouseover = function() {
+				d.src = 'img/4.webp';
+			}
+			//密码框
+			const f = document.querySelector('.f');
+			const g = document.querySelector('.g')
+			f.onclick = function() {
+				f.style.display = 'none';
+				g.style.display = 'inline-block';
+				e.type = 'text';
+			}
+			g.onclick = function() {
+				f.style.display = 'inline-block';
+				g.style.display = 'none';
+				e.type = 'password';
+			}
+		</script>
+	</body>
+</html>
