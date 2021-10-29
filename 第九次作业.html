@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Document</title>
+		<style>
+			/* .First-input {
+            width: 300px;
+            height: 50px;
+            font-size: 18px;
+            padding-left: 20px;
+            border: 5px solid gray;
+            background-color: skyblue;
+            font-weight: 700;
+            color: white;
+        }
+        .first-a {
+            display: inline-block;
+            margin-left: 50px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .second-input {
+            width: 300px;
+            height: 50px;
+            font-size: 18px;
+            padding-left: 20px;
+            background-color: black;
+            font-weight: 700;
+            color: white;
+        }
+        .second-a {
+            display: inline-block;
+            margin-left: 50px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .third {
+            display: inline-block;
+            background-color: steelblue;
+            border: 2px solid blue;
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: brown;
+        }
+        .seventh {
+            display: inline-block;
+            background-color: black;
+            width: 500px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+        }
+        #zuoye4 {
+            position: relative;
+        }
+        .fourth {
+            width: 285px;
+            height: 50px;
+            background-color: skyblue;
+            font-size: 18px;
+            padding-left: 20px;
+            font-weight: 700;
+            color: #000;
+        }
+        .fourth-b {
+            width: 80px;
+            height: 50px;
+            position: absolute;
+            border: none;
+            left: 225px;
+            top: 2.5px;
+            background-color: skyblue;
+            font-size: 15px;
+            font-weight: 700;
+            
+        }
+        .fourth-a {
+            display: inline-block;
+            margin-left: 30px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .fourth-b:hover {
+            color: blue;
+        }
+        .fifth {
+            display: inline-block;
+            font-size: 20px;
+            color: brown;
+            font-weight: 700;
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            background-color: yellow;
+        }
+        .fifth-b {
+            width: 100px;
+            height: 50px;
+            color: white;
+            font-size: 16px;
+            font-weight: 700;
+            background-color: black;
+            border: none;
+        } */
+    </style>
+	</head>
+	<body>
+		<!-- 作业1 -->
+		<h1>作业1</h1>
+		<h2>1.</h2>
+		<input type="text" class="First-input" value="">
+		<p class="first-a">按回车键</p>
+		<hr>
+		<!-- 作业2 -->
+		<h2>2.</h2>
+		<input type="text" class="second-input" value="">
+		<p class="second-a">按回车键</p>
+		<hr>
+		<!-- 作业3 -->
+		<h2>3.</h2>
+		<p class="third"></p>
+		<hr>
+		<!-- 作业4 -->
+		<h2>4.</h2>
+		<div id="zuoye4">
+			<input type="text" class="fourth">
+			<button class="fourth-b">点击确认</button>
+			<p class="fourth-a">输入一个2-10的字符</p>
+		</div>
+		<hr>
+		<!-- 作业5 -->
+		<h1>作业2</h1>
+		<p class="fifth">点击按钮</p>
+		<button class="fifth-b">点击刷新</button>
+		<hr>
+		<!-- 作业6 -->
+		<h1>作业3</h1>
+		<input type="text" class="sixth">
+		<select name="" id="" class="sixth-a">
+			<option value="加">+</option>
+			<option value="减">-</option>
+			<option value="乘">*</option>
+			<option value="除">÷</option>
+		</select>
+		<input type="text" class="sixth-b">
+		<button class="sixth-d">=</button>
+		<input type="text" class="sixth-c">
+
+		<hr>
+		<!-- 作业3 -->
+		<h1>作业4</h1>
+		<p class="seventh"></p>
+		<hr>
+		<script>
+			// 作业1
+			{
+				const input = document.querySelector('.First-input');
+				const p = document.querySelector('.first-a');
+				let a = [];
+				input.addEventListener('focus', function() {
+					input.value = '';
+					input.addEventListener('keyup', function(e) {
+						a = [];
+						if (e.keyCode === 13) {
+
+							for (let i = 0; i <= input.value.length - 1; i++) {
+								a[i] = input.value[i];
+							}
+							p.style.color = 'black';
+							p.textContent = a.reverse();
+
+
+						}
+					});
+				})
+
+			}
+			// 作业2
+			{
+				const input = document.querySelector('.second-input');
+				const p = document.querySelector('.second-a');
+				let a = '';
+				input.addEventListener('focus', function() {
+					input.value = '';
+					input.addEventListener('keyup', function(e) {
+						a = '';
+						let b = input.value.split('.');
+						if (e.keyCode === 13) {
+							if (input.value == '') {
+								p.textContent = '请输入正确信息';
+								p.style.color = 'red';
+							} else {
+								for (let i = 0; i <= b.length - 1; i++) {
+									if (i == b.length - 1) {
+										a += '*';
+										continue;
+									}
+									a += b[i] + '.';
+								}
+								p.style.color = 'black';
+								p.textContent = '';
+								p.textContent = a;
+							}
+
+						}
+					});
+				})
+			}
+			// 作业3
+			{
+				const p = document.querySelector('.third');
+
+				// setInterval(seconds, 1000);
+				function a() {
+					let time = new Date;
+					let seconds = time.getSeconds();
+					let Minutes = time.getMinutes();
+					let Hours = time.getHours();
+					let Day = time.getDay();
+					let Dates = time.getDate();
+					let FullYear = time.getFullYear();
+					let Month = time.getMonth() + 1;
+					p.textContent = `${FullYear}年 | ${Month}月${Dates}日 | 星期${Day} | 当前时间 ${Hours}:${Minutes}:${seconds}`;
+				}
+				a();
+				setInterval(a, 1000);
+			}
+			// 作业4
+			{
+				const input = document.querySelector('.fourth');
+				const p = document.querySelector('.fourth-a');
+				const button = document.querySelector('.fourth-b');
+				button.addEventListener('click', function() {
+					if (input.value.length >= 2 && 10 >= input.value.length) {
+						p.textContent = '格式正确';
+					} else if (input.value.length < 2) {
+						p.textContent = '输入数值过短，请输入2-10个字符';
+					} else {
+						p.textContent = '输入数值过长，请输入2-10个字符';
+					}
+				})
+
+			}
+			// 作业5
+			{
+				const p = document.querySelector('.fifth');
+				const button = document.querySelector('.fifth-b');
+				let a = Math.floor(Math.random() * (9999 - 1000 - 1)) + 1000;
+				button.addEventListener('click', function() {
+					p.textContent = a;
+					a = Math.floor(Math.random() * (9999 - 1000 - 1)) + 1000;
+				})
+			}
+			// 作业6
+			{
+				const input1 = document.querySelector('.sixth');
+				const input2 = document.querySelector('.sixth-b');
+				const input3 = document.querySelector('.sixth-c');
+				const selet = document.querySelector('.sixth-a');
+				const button = document.querySelector('.sixth-d');
+				let a;
+				button.addEventListener('click', function() {
+					if (selet.value == '加') {
+						input3.value = parseFloat(input1.value) + parseFloat(input2.value);
+					} else if (selet.value == '减') {
+						input3.value = parseFloat(input1.value) - parseFloat(input2.value);
+					} else if (selet.value == '乘') {
+						input3.value = parseFloat(input1.value) * parseFloat(input2.value);
+					} else {
+						input3.value = parseFloat(input1.value) / parseFloat(input2.value);
+					}
+
+				})
+			}
+			// 作业7
+			{
+				const p = document.querySelector('.seventh');
+
+				// setInterval(seconds, 1000);
+				function a() {
+					let time = new Date;
+					let seconds = time.getSeconds();
+					let Minutes = time.getMinutes();
+					let Hours = time.getHours();
+					let Day = time.getDay();
+					let Dates = time.getDate();
+					let FullYear = time.getFullYear();
+					let Month = time.getMonth() + 1;
+					p.textContent = `${FullYear}年 | ${Month}月${Dates}日 | 星期${Day} | 当前时间 ${Hours}:${Minutes}:${seconds}`;
+				}
+				a();
+				setInterval(a, 1000);
+			}
+		</script>
+	</body>
